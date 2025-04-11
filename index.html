@@ -182,7 +182,7 @@
 		</audio>
 
 		<!-- Floating Music Toggle Button -->
-		<button id="toggleMusic" class="fixed bottom-4 right-4 z-50 bg-pink-300 text-white p-3 rounded-full shadow-lg hover:bg-pink-700 transition" title="Toggle Music">🔊</button>
+		<button id="toggleMusic" class="fixed bottom-4 right-4 z-50 bg-pink-300 text-white p-3 rounded-full shadow-lg transition" title="Toggle Music">🔈</button>
 
 		<!-- Scripts -->
 		<script>
@@ -282,41 +282,60 @@
 			})
 
 			// Music Toggle
+			const fadeInAudio = (audio, targetVolume = 1, duration = 2000) => {
+				audio.volume = 0
+				audio.play()
+				let step = targetVolume / (duration / 100)
+				let interval = setInterval(() => {
+					if (audio.volume < targetVolume) {
+						audio.volume = Math.min(audio.volume + step, targetVolume)
+					} else {
+						clearInterval(interval)
+					}
+				}, 100)
+			}
+
 			const music = document.getElementById('bg-music')
 			const toggleBtn = document.getElementById('toggleMusic')
 
 			let isPlaying = false
 
-			// Ensure music starts if user interacts
+			const updateButtonIcon = () => {
+				toggleBtn.textContent = isPlaying ? '🔊' : '🔈'
+			}
+
+			// Try to auto-play after first user interaction
 			document.body.addEventListener(
 				'click',
-				() => {
+				async () => {
 					if (!isPlaying) {
-						music
-							.play()
-							.then(() => {
-								isPlaying = true
-								toggleBtn.textContent = '🔊'
-							})
-							.catch(() => {
-								console.warn('Autoplay blocked')
-							})
+						try {
+							await fadeInAudio(music)
+							isPlaying = true
+							updateButtonIcon()
+						} catch (err) {
+							console.warn('Autoplay blocked:', err)
+						}
 					}
 				},
 				{ once: true }
 			)
 
-			// Toggle music play/pause
-			toggleBtn.addEventListener('click', () => {
+			// Toggle music on button click
+			toggleBtn.addEventListener('click', async () => {
 				if (isPlaying) {
 					music.pause()
-					toggleBtn.textContent = '🔈'
+					isPlaying = false
 				} else {
-					music.play()
-					toggleBtn.textContent = '🔊'
+					try {
+						await music.play()
+						isPlaying = true
+					} catch (err) {
+						console.warn('Play failed:', err)
+					}
 				}
-				isPlaying = !isPlaying
-			})  
+				updateButtonIcon()
+			})
 		</script>
 	</body>
 </html>
