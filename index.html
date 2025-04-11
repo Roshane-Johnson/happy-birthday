@@ -4,12 +4,14 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Happy 24th Birthday, Phenix-lyn 🤍</title>
+		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;800&display=swap" rel="stylesheet" />
 		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 		<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollSmoother.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 		<script src="/assets/js/confetti.min.js"></script>
-		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;800&display=swap" rel="stylesheet" />
 
 		<style>
 			body {
@@ -45,21 +47,23 @@
 		<div class="smooth-wrapper">
 			<div class="smooth-content">
 				<!-- Confetti -->
-				<div id="confetti" class="absolute w-full h-full top-0 left-0"></div>
+				<div class="flex justify-center items-center">
+					<div id="confetti"></div>
+				</div>
 
-				<!-- Hero Section with Image Background -->
+				<!-- Hero Section -->
 				<section class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
-					<!-- Background Image -->
-					<img src="assets/images/hero.jpg" alt="Background image" class="absolute top-0 left-0 w-full h-full object-cover z-0" />
+					<!-- Background Image (Parallax Effect) -->
+					<img id="parallaxBg" src="assets/images/hero.jpg" alt="Background image" class="absolute top-0 left-0 w-full h-full object-cover z-0" />
 
-					<!-- Dark Overlay for readability -->
-					<div class="absolute inset-0 bg-pink-500 bg-opacity-50 z-10"></div>
+					<!-- Dark Overlay -->
+					<div class="absolute inset-0 bg-pink-400 bg-opacity-60 z-10"></div>
 
 					<!-- Foreground Content -->
 					<div class="relative z-20 text-white max-w-2xl mx-auto">
 						<h1 id="heroTitle" class="text-5xl md:text-6xl font-bold mb-4 opacity-0">Happy 24th Birthday, Phenix-lyn 🤍</h1>
 						<p id="heroText" class="text-lg md:text-xl mb-6 opacity-0">you’re more than amazing 🌸 you’re unforgettable.</p>
-						<button onclick="scrollDown()" class="bg-pink-600 text-white px-6 py-3 rounded-full hover:bg-pink-700 transition">scroll for your surprise 💌</button>
+						<button onclick="scrollDown()" class="font-bold bg-pink-200 text-pink-900 px-6 py-3 rounded-full transition-all hover:bg-pink-300 transition">Scroll for your surprise 🎁</button>
 					</div>
 				</section>
 
@@ -115,7 +119,7 @@
 							<p>i'm fire and focus, ready but reckless,</p>
 							<p>somehow we made sense,</p>
 							<p>two broken halves molded into one beautiful mess.</p>
-							<p>not just love — but choice, trust, and timing.</p>
+							<p>not just love, but choice, trust, and timing.</p>
 							<p>since 2024, you’ve been my peace and my pressure,</p>
 							<p>my favorite what if turned into my forever yes.</p>
 						</div>
@@ -137,26 +141,26 @@
 					<h2 class="text-3xl font-bold text-center mb-8 come-in">4 Faces of You 📸</h2>
 					<div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
 						<div class="relative">
-							<div class="w-full h-40 bg-pink-200 rounded-lg flex items-center justify-center text-pink-700 font-bold overflow-clip">
-								<img src="assets/images/1.jpg" alt="An Image Of The Most Beautiful Girl In The World" class="w-full h-full object-cover rounded-md come-in" />
+							<div class="w-full h-[450px] bg-pink-200 rounded-lg flex items-center justify-center text-pink-700 font-bold overflow-clip">
+								<img src="assets/images/1.jpg" alt="An Image Of The Most Beautiful Girl In The World" class="w-full h-full object-cover object-top rounded-md come-in" />
 							</div>
 							<p class="text-sm mt-2 text-center come-in">That smile could light up a city 🌆</p>
 						</div>
 						<div class="relative">
-							<div class="w-full h-40 bg-pink-200 rounded-lg flex items-center justify-center text-pink-700 font-bold overflow-clip">
-								<img src="assets/images/2.jpg" alt="An Image Of The Most Beautiful Girl In The World" class="w-full h-full object-cover rounded-md come-in" />
+							<div class="w-full h-[450px] bg-pink-200 rounded-lg flex items-center justify-center text-pink-700 font-bold overflow-clip">
+								<img src="assets/images/2.jpg" alt="An Image Of The Most Beautiful Girl In The World" class="w-full h-full object-cover object-top rounded-md come-in" />
 							</div>
 							<p class="text-sm mt-2 text-center come-in">Pure elegance in one frame 👑</p>
 						</div>
 						<div class="relative">
-							<div class="w-full h-40 bg-pink-200 rounded-lg flex items-center justify-center text-pink-700 font-bold overflow-clip">
-								<img src="assets/images/3.jpg" alt="An Image Of The Most Beautiful Girl In The World" class="w-full h-full object-cover rounded-md come-in" />
+							<div class="w-full h-[450px] bg-pink-200 rounded-lg flex items-center justify-center text-pink-700 font-bold overflow-clip">
+								<img src="assets/images/3.jpg" alt="An Image Of The Most Beautiful Girl In The World" class="w-full h-full object-cover object-top rounded-md come-in" />
 							</div>
 							<p class="text-sm mt-2 text-center come-in">Caught in a moment of magic ✨</p>
 						</div>
 						<div class="relative">
-							<div class="w-full h-40 bg-pink-200 rounded-lg flex items-center justify-center text-pink-700 font-bold overflow-clip">
-								<img src="assets/images/4.jpg" alt="An Image Of The Most Beautiful Girl In The World" class="w-full h-full object-cover rounded-md come-in" />
+							<div class="w-full h-[450px] bg-pink-200 rounded-lg flex items-center justify-center text-pink-700 font-bold overflow-clip">
+								<img src="assets/images/4.jpg" alt="An Image Of The Most Beautiful Girl In The World" class="w-full h-full object-cover object-top rounded-md come-in" />
 							</div>
 							<p class="text-sm mt-2 text-center come-in">Just when I thought you couldn’t get more beautiful 😍</p>
 						</div>
@@ -172,80 +176,47 @@
 			</div>
 		</div>
 
+		<audio id="bg-music" loop>
+			<source src="assets/music/one-in-a-million-hannah-montana.mp3" type="audio/mpeg" />
+			Your browser does not support the audio element.
+		</audio>
+
+		<!-- Floating Music Toggle Button -->
+		<button id="toggleMusic" class="fixed bottom-4 right-4 z-50 bg-pink-300 text-white p-3 rounded-full shadow-lg hover:bg-pink-700 transition" title="Toggle Music">🔊</button>
+
 		<!-- Scripts -->
 		<script>
-			const scrollDown = () => document.querySelector('section:nth-of-type(2)').scrollIntoView({ behavior: 'smooth', block: 'center' })
+			// Register GSAP plugins
+			gsap.registerPlugin(ScrollTrigger)
 
+			// Smooth Scroll using Lenis
+			const lenis = new Lenis({ duration: 1.2, smooth: true })
+			const raf = (time) => {
+				lenis.raf(time)
+				requestAnimationFrame(raf)
+			}
+			requestAnimationFrame(raf)
+
+			// Parallax background
+			const bg = document.getElementById('parallaxBg')
+			if (bg) {
+				window.addEventListener('scroll', () => {
+					bg.style.transform = `translateY(${window.scrollY * 0.5}px)`
+				})
+			}
+
+			// Scroll to next section
+			const scrollDown = () => {
+				const next = document.querySelector('section:nth-of-type(2)')
+				if (next) next.scrollIntoView({ behavior: 'smooth', block: 'center' })
+			}
+
+			// GSAP Hero animations
 			gsap.to('#heroTitle', { opacity: 1, y: -20, duration: 1.2, ease: 'power3.out' })
 			gsap.to('#heroText', { delay: 0.5, opacity: 1, y: -10, duration: 1.2, ease: 'power3.out' })
-			gsap.utils.toArray('.come-in').forEach((elem) => {
-				gsap.from(elem, {
-					scrollTrigger: {
-						trigger: elem,
-						start: 'top 80%', // when top of element hits 80% of viewport height
-						toggleActions: 'play none none none',
-					},
-					opacity: 0,
-					y: 30,
-					duration: 1,
-					ease: 'power3.out',
-				})
-			})
 
-			const countdown = () => {
-				const endTime = new Date()
-				endTime.setHours(20, 0, 0, 0)
-				const x = setInterval(() => {
-					const now = new Date().getTime()
-					const distance = endTime - now
-					if (distance < 0) {
-						document.getElementById('countdown').innerText = '🎉 Surprise Unlocked!'
-						document.getElementById('giftBox').classList.remove('hidden')
-						clearInterval(x)
-						return
-					}
-					const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-					const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-					const seconds = Math.floor((distance % (1000 * 60)) / 1000)
-					document.getElementById('countdown').innerText = `${hours}h ${minutes}m ${seconds}s`
-				}, 1000)
-			}
-			countdown()
-
-			document.addEventListener('DOMContentLoaded', function () {
-				let confetti = new Confetti('confetti')
-				confetti.setCount(200)
-				confetti.setSize(2)
-				confetti.setPower(30)
-				confetti.setFade(false)
-				confetti.destroyTarget(false)
-				const triggerConfetti = () => {
-					const btn = document.querySelector('#confetti')
-					if (btn) btn.click()
-				}
-				let counter = 0
-				const maxCount = 2
-				const interval = setInterval(() => {
-					if (counter >= maxCount) {
-						clearInterval(interval)
-					} else {
-						triggerConfetti()
-						counter++
-					}
-				}, 600)
-			})
-
-			gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
-			const smoother = ScrollSmoother.create({
-				wrapper: '.smooth-wrapper',
-				content: '.smooth-content',
-				smooth: 1,
-				ease: 'power1.inOut',
-				smoothTouch: 0.1,
-			})
-
-			// Animate whole sections
-			gsap.utils.toArray('section').forEach((section, i) => {
+			// Section fade-in on scroll
+			gsap.utils.toArray('section').forEach((section) => {
 				gsap.from(section, {
 					scrollTrigger: {
 						trigger: section,
@@ -260,7 +231,7 @@
 				})
 			})
 
-			// Animate inner elements like list items and text
+			// Animate inner section elements
 			gsap.utils.toArray('section ul li, section h2, section p').forEach((el) => {
 				gsap.from(el, {
 					scrollTrigger: {
@@ -274,6 +245,78 @@
 					ease: 'power2.out',
 				})
 			})
+
+			// DOMContentLoaded triggers
+			document.addEventListener('DOMContentLoaded', () => {
+				// Confetti setup
+				const confetti = new Confetti('confetti')
+				confetti.setCount(200)
+				confetti.setSize(2)
+				confetti.setPower(80)
+				confetti.setFade(false)
+				confetti.destroyTarget(false)
+
+				setTimeout(() => {
+					let counter = 0
+					const interval = setInterval(() => {
+						if (counter++ >= 3) {
+							clearInterval(interval)
+						} else {
+							const btn = document.querySelector('#confetti')
+							if (btn) btn.click()
+						}
+					}, 600)
+				}, 300)
+
+				// Background music autoplay on interaction
+				const music = document.getElementById('bg-music')
+				if (music) {
+					document.body.addEventListener(
+						'click',
+						() => {
+							music.play().catch((err) => console.warn('Autoplay blocked:', err))
+						},
+						{ once: true }
+					)
+				}
+			})
+
+			// Music Toggle
+			const music = document.getElementById('bg-music')
+			const toggleBtn = document.getElementById('toggleMusic')
+
+			let isPlaying = false
+
+			// Ensure music starts if user interacts
+			document.body.addEventListener(
+				'click',
+				() => {
+					if (!isPlaying) {
+						music
+							.play()
+							.then(() => {
+								isPlaying = true
+								toggleBtn.textContent = '🔊'
+							})
+							.catch(() => {
+								console.warn('Autoplay blocked')
+							})
+					}
+				},
+				{ once: true }
+			)
+
+			// Toggle music play/pause
+			toggleBtn.addEventListener('click', () => {
+				if (isPlaying) {
+					music.pause()
+					toggleBtn.textContent = '🔈'
+				} else {
+					music.play()
+					toggleBtn.textContent = '🔊'
+				}
+				isPlaying = !isPlaying
+			})  
 		</script>
 	</body>
 </html>
